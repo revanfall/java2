@@ -15,30 +15,26 @@ public class HelloServer extends AbstractHandler {
                        Request baseRequest,
                        HttpServletRequest request,
                        HttpServletResponse response)
-            throws IOException, ServletException
-    {
-        response.setContentType("text/html;charset=utf-8");
+            throws IOException, ServletException{
+
+        response.setContentType("text/html;chatset=utf-8");
         response.setStatus(HttpServletResponse.SC_OK);
-        baseRequest.setHandled(true);
-        response.getWriter().println("<h1>Hello Server</h1>");
-
-        PrintWriter writer = response.getWriter();
-
-        //1
-        /*Enumeration<String> names = request.getHeaderNames();
-        while(names.hasMoreElements()){
-            writer.println(names.nextElement());
-        }*/
-
-        //2
-        //writer.println(baseRequest.getHttpFields());
-
-        //3
-        //writer.println(baseRequest.getMetaData());
-
-        //4
-        //response.sendRedirect("https://www.google.com");
 
 
-    }}
+        String html="<!DOCTYPE html>\n"+
+                "<html>\n" +
+                "<head>\n" +
+                "<link rel=\"stylesheet\" type=\"text/css\" href=\"C:\\Users\\Ilya\\Desktop\\main.css\"/>\n" +
+                "</head>\n" +
+                "<body>\n" +
+                "<h1>Hello Server</h1>\n"+
+                "<h2>Files</h2>\n" +
+                "<p>Pictures</p>\n" +
+                "</body>\n" +
+                "</html>";
+        response.getWriter().println(html);
+        response.getWriter().println("<img src=\"resources/day-2-grivni-2-768x578.jpg\"/>\n" );
 
+
+    }
+}
